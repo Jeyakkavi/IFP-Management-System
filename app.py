@@ -7,7 +7,7 @@ import os
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.secret_key = 'mshshmhsetajdhnbjhs'  # Change this to a random secret key
+app.secret_key = 'yoursecretkey'  # Change this to a random secret key
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -17,7 +17,7 @@ migrate = Migrate(app, db)
 
 
 
-app.config['upload_directory'] = r"C:\Users\Kavi2\OneDrive\Pictures\projlast\uploads"
+app.config['upload_directory'] = "uploads"
 # Mock user data - replace this with your actual user authentication mechanism
 
 
