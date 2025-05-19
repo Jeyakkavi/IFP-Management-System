@@ -1,6 +1,6 @@
 # IFP Management System
 
-The IFP (Industry-Focused Project) Management System is a web-based application developed using Python and Flask. It helps manage and streamline project details, student and faculty assignments, progress tracking, and approvals for academic institutions.
+The IFP Management System is a web-based application developed using Python and Flask. It helps manage and streamline project details, student and faculty assignments, progress tracking, and approvals for academic institutions.
 
 ---
 
@@ -14,14 +14,14 @@ projlast/
 ├── alembic/                # Alembic migration environment
 ├── migrations/             # Database migration scripts
 │   └── versions/           # Auto-generated migration files
-└── templates/ & static/    # (Assumed to exist: HTML, CSS, JS files for frontend)
+└── templates/ & static/    # HTML files for frontend
 ```
 
 ---
 
 ## 🚀 Features
 
-- User roles: Admin, Student, Faculty
+- User roles: Admin, Faculty
 - Add/view/update IFP project titles
 - Assign faculty guides to students
 - Track project progress and approvals
@@ -35,7 +35,7 @@ projlast/
 - **Backend:** Python, Flask
 - **Database:** SQLite
 - **Migrations:** Alembic
-- **Frontend:** HTML/CSS/JS (assumed in templates folder)
+- **Frontend:** HTML/CSS
 
 ---
 
