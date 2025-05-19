@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-image: url('static/ct.png');
+            background-size: cover;
+            background-position: center;
+            height: 150vh; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            grid-gap: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="file"] {
+            width: auto;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto;
+            display: block;
+            margin: 20px auto 0;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+    
+        .main-content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #000000;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .btn-primary:hover {
+            background-color: #000000;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Project</h2>
+        <form action="/add_project" method="post" enctype="multipart/form-data">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="items_approved">Items Approved:</label>
+            <input type="text" id="items_approved" name="items_approved" required>
+
+            <label for="faculty">Faculty:</label>
+            <select id="faculty" name="faculty" required>
+                {% for faculty in faculties %}
+                    <option value="{{ faculty.fid }}">{{ faculty.fname }}</option>
+                {% endfor %}
+            </select>
+
+            
+            <label for="students">Students:</label>
+            <textarea id="students" name="students" rows="4" required></textarea>
+        
+<!--
+            <label for="faculty">Faculty:</label>
+            <select id="faculty" name="faculty" required>
+                <option value="">Select Faculty</option>
+                <option value="1">Dr.Anitha</option>
+                <option value="2">Dr.Karthiga</option>
+                <option value="3">Dr.E.Suganya</option>
+                <option value="4">Dr.Aravindan Chandrabose </option>
+                <option value="5">Dr.A. Shahina  </option>
+                <option value="6">Dr.K.S.Gayathri </option>
+                <option value="7">Dr.N.Radha </option>
+                <option value="8">Dr.Bhalaji Natarajan </option>
+                <option value="9">Dr.I.Joe Louis Paul </option>
+                <option value="10">Dr.P.Vasuki</option>
+                <option value="11">Dr.R.Swathika </option>
+                <option value="12">Dr.S.Mohanavalli</option>
+                <option value="13">Dr.N.Sripriya </option>
+
+
+                Add more options if needed 
+            </select>
+
+            <label for="students">Students (comma-separated):</label>
+            <input type="text" id="students" name="students" required>
+        -->
+
+            <label for="amount_sanctioned">Amount Sanctioned:</label>
+            <input type="number" id="amount_sanctioned" name="amount_sanctioned" required>
+
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+
+            <label for="duration">Duration (months):</label>
+            <input type="number" id="duration" name="duration" required>
+
+            <label for="domain">Domain:</label>
+            <input type="text" id="domain" name="domain" required>
+
+            <label for="academic_year">Academic Year:</label>
+            <input type="text" id="academic_year" name="academic_year" required>
+
+            <label for="sanction_copy">Sanction Copy:</label>
+            <input type="file" id="sanction_copy" name="sanction_copy" required>
+
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/dashboard" class="btn-primary">Home</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

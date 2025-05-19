@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            grid-gap: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto;
+            display: block;
+            margin: 20px auto 0;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Project</h2>
+        <form action="{{url_for('edit_projects', pid = project.pid) }}" method="post">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ project.title }}"><br>
+
+            <label for="items_approved">Items Approved:</label>
+            <input type="text" id="items_approved" name="items_approved" value="{{ project.items_approved }}"><br>
+
+            <label for="domain">Domain:</label>
+            <input type="text" id="domain" name="domain" value="{{ project.domain }}"><br>
+
+            <label for="amount_sanctioned">Amount Sanctioned:</label>
+            <input type="text" id="amount_sanctioned" name="amount_sanctioned" value="{{ project.amount_sanctioned }}"><br>
+
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ project.start_date }}"><br>
+
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ project.end_date }}"><br>
+
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" name="duration" value="{{ project.duration }}"><br>
+
+            <label for="academic_year">Academic Year:</label>
+            <input type="text" id="academic_year" name="academic_year" value="{{ project.academic_year }}"><br>
+<!--
+            <label for="faculty">Faculty:</label>
+            <select id="faculty" name="faculty" required>
+                <option value="">Select Faculty</option>
+                <option value="1">Dr.Anitha</option>
+                <option value="2">Dr.Karthiga</option>
+                <option value="3">Dr.E.Suganya</option>
+                <option value="4">Dr.Aravindan Chandrabose </option>
+                <option value="5">Dr.A. Shahina  </option>
+                <option value="6">Dr.K.S.Gayathri </option>
+                <option value="7">Dr.N.Radha </option>
+                <option value="8">Dr.Bhalaji Natarajan </option>
+                <option value="9">Dr.I.Joe Louis Paul </option>
+                <option value="10">Dr.P.Vasuki</option>
+                <option value="11">Dr.R.Swathika </option>
+                <option value="12">Dr.S.Mohanavalli</option>
+                <option value="13">Dr.N.Sripriya </option>
+
+
+            
+            </select>
+        
+            <label for="faculty">Faculty:</label>
+            <select id="faculty" name="faculty">
+                {% for faculty in faculties %}
+                    <option value="{{ faculty.id }}" {% if project.faculty.id == faculty.id %}selected{% endif %}>{{ faculty.fname }}</option>
+                {% endfor %}
+            </select>
+     -->
+            <br>
+            <button type="submit">Update Project</button>
+        </form>
+    </div>
+</body>
+</html>

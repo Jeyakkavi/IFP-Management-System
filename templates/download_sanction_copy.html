@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Sanction Copy</title>
+</head>
+<body>
+    <h1>Download Sanction Copy</h1>
+    {% if project.sanction_copy %}
+        <p>Click the button below to download the sanction copy for "{{ project.title }}".</p>
+        <a href="{{ url_for('download_sanction_copy', pid=project.pid) }}">Download Sanction Copy</a>
+    {% else %}
+        <p>No sanction copy found for this project.</p>
+    {% endif %}
+</body>
+</html>

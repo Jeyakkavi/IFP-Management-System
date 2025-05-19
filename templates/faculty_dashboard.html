@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            font-size: 110%;
+        }
+       .sidebar {
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            box-sizing: border-box;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+       .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+       .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+        }
+       .sidebar li {
+            margin-bottom: 10px;
+            
+        }
+       .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 23px;
+            transition: color 0.3s;
+            
+        }
+       .sidebar a:hover {
+            color: #f4f4f4;
+        }
+       .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 20px;
+        }
+       .card {
+            background-color: #fff;
+            border-radius: 70px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            margin: 80px;
+            flex: 1 0 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            
+            
+        }
+       .card h2 {
+            margin-top: 0;
+            color: #333;
+            padding-block: 10px;
+            
+            
+        }
+       .card p {
+            color: #555;
+            margin-top: 15px;
+        }
+       .btn-primary {
+            background-color: #868c92;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+       .btn-primary:hover {
+            background-color: #868c92;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        
+        <a href="/admin" class="btn-primary">Add Faculty</a>
+        
+        <ul>
+            <br>
+            <li>
+                <br>
+                <h2>Manage Projects</h2>
+                <br>
+                <ul>
+                    <li><a href="/add_project" class="btn-primary">Add Project</a></li>
+                    <br>
+                    <li><a href="/search_project" class="btn-primary">Search Project</a></li>
+                    <br>
+                </ul>
+            </li>
+            <li><a href="/logout" class="btn-primary">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="card">
+            <a href="/view_projects">
+                <h2>View Projects</h2>
+                
+            </a>
+        </div>
+        <div class="card">
+            <a href="/ongoing_projects">
+                <h2>Ongoing Projects</h2>
+                
+            </a>
+        </div>
+        <div class="card">
+            <a href="/completed_projects">
+                <h2>Completed Projects</h2>
+                
+            </a>
+        </div>
+        <div class="card">
+            <a href="/progress">
+                <h2>Project Progress</h2>
+                <div id="project-progress-chart">{{ plot_html|safe }}</div>
+                
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
+

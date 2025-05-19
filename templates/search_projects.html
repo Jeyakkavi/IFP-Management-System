@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-image: url('static/fountain.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100vh; /* Ensure full height of viewport */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust background color opacity */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .main-content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #000000;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .btn-primary:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Project</h2>
+        <form action="/search_projects" method="GET">
+            <label for="search_by">Search By:</label>
+            <select name="search_by" id="search_by">
+                <option value="title">Title</option>
+                <option value="faculty">Faculty</option>
+                <option value="amount_sanctioned">Amount Sanctioned</option>
+                <option value="start_date">Start Date</option>
+                <option value="duration">Duration</option>
+                <option value="domain">Domain</option>
+                <option value="academic_year">Academic Year</option>
+            </select>
+            <label for="keyword">Keyword:</label>
+            <input type="text" name="keyword" id="keyword">
+            <input type="submit" value="Search">
+        </form>
+        <a href="/dashboard" class="btn-primary">Home</a>
+    </div>
+</body>
+</html>

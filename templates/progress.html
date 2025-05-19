@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Project Progress</h1>
+
+    <!-- Create canvas element for the chart -->
+    <canvas id="progressChart" width="800" height="400"></canvas>
+
+    <script>
+        // Get progress data from Flask template variables
+        var tasksCompleted = {{ tasks_completed | tojson }};
+        var projectTitles = {{ project_titles | tojson }};
+
+        // Create a new chart
+        var ctx = document.getElementById('progressChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: projectTitles,
+                datasets: [{
+                    label: 'Task Completed',
+                    data: tasksCompleted,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Task Completed'
+                        }
+                    },
+                    xAxes: [  // Corrected property name
+                        {
+                            title: {
+                                display: true,
+                                text: 'Project Titles'
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

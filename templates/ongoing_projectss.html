@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongoing Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 110%;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+        tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ongoing Projects</h1>
+        {% if ongoing_projectss %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Title</th>
+                        <th>Students</th>
+                        <th>Items Approved</th>
+                        <th>Faculty</th>
+                     
+                        <th>Amount Sanctioned</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration <br> (months)</th>
+                        <th>Domain</th>
+                        <th>Academic Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in ongoing_projectss %}
+                        <tr>
+                            <td>{{ project.title }}</td>
+                            <td>
+                                <ul>
+                                    {% for student in project.students %}
+                                        <li>{{ student.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>{{ project.items_approved }}</td>
+                            <td>{{ project.faculty.fname }}</td>
+                        
+                            <td>₹{{ project.amount_sanctioned }}</td>
+                            <td>{{ project.start_date }}</td>
+                            <td>{{ project.end_date }}</td>
+                            <td>{{ project.duration }}</td>
+                            <td>{{ project.domain }}</td>
+                            <td>{{ project.academic_year }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No ongoing projects found.</p>
+        {% endif %}
+        <a href="/dashboard" class="btn-primary">Home</a>
+    </div>
+</body>
+</html>

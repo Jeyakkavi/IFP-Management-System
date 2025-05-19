@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 125%;
+        }
+       .sidebar {
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: 30px;
+            position: fixed;    
+            height: 100%;
+            overflow-y: auto;
+        }
+       .sidebar h2 {
+            margin-top: 5;
+            color: #fff;
+        }
+       .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       .sidebar li {
+            margin-bottom: 10px;
+        }
+       .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+       .sidebar a:hover {
+            color: #f4f4f4;
+        }
+       .main-content {
+            margin-left: 200px;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 30px;
+        }
+       .card {
+            background-color: #fff;
+            border-radius: 70px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            margin: 80px;
+            flex: 1 0 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       .card h2 {
+            margin-top: 0;
+            color: #333;
+            padding-block: 20px;
+        }
+       .card p {
+            color: #555;
+            margin-top: 15px;
+        }
+       .btn-primary {
+            background-color: #868c92;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+       .btn-primary:hover {
+            background-color: #868c92;
+        }
+       /* New styles for ClockTower image */
+       .clock-tower {
+            background-image: url('static/ClockTower.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Adjust as needed */
+            width: calc(100% - 300px); /* Adjust based on sidebar width */
+            margin-left: 300px; /* Same as sidebar width */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        
+        {% if current_user.role == 'admin' %}
+        <a href="/admin" class="btn-primary">Add Faculty</a>
+        <ul>
+            <br>
+            <li>
+                <br>
+                <h2>Manage Projects</h2>
+                <br>
+                <ul>
+                    <li><a href="/add_project" class="btn-primary">Add Project</a></li>
+                    <br>
+                    <li><a href="/search_projects" class="btn-primary">Search Project</a></li>
+                    <br>
+                </ul>
+            </li>
+            <li><a href="/logout" class="btn-primary">Logout</a></li>
+        </ul>
+        <ul>
+            <br>
+            <li>
+                <br>
+                <h2>View Projects</h2>
+                <br>
+                <ul>
+                    <li><a href="/view_projectss" class="btn-primary">View Projects</a></li>
+                    <br>
+                    <li><a href="/ongoing_projectss" class="btn-primary">Ongoing Projects</a></li>
+                    <br>
+                    <li><a href="/completed_projectss" class="btn-primary">Completed Projects</a></li>
+                    <br>
+                </ul>
+            </li>
+            <li><a href="/progress" class="btn-primary">Project Progress</a></li>
+        {% elif current_user.role == 'faculty' %}
+        <ul>
+            <br>
+            <li>
+                <br>
+                <h2>View Projects</h2>
+                <br>
+                <ul>
+                    <li><a href="/search_projects" class="btn-primary">Search Project</a></li>
+                    <br>
+                    <li><a href="/view_projectss" class="btn-primary">View Projects</a></li>
+                    <br>
+                    <li><a href="/ongoing_projectss" class="btn-primary">Ongoing Projects</a></li>
+                    <br>
+                    <li><a href="/completed_projectss" class="btn-primary">Completed Projects</a></li>
+                    <br>
+                </ul>
+            </li>
+            <li><a href="/progress" class="btn-primary">Project Progress</a></li>
+            <li><a href="/logout" class="btn-primary">Logout</a></li>
+        </ul>
+        {% endif %}
+    </div>
+
+    <!-- New ClockTower Image -->
+    <div class="clock-tower"></div>
+
+</body>
+</html>

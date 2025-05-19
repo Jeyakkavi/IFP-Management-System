@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our Project Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome for icons -->
+    <style>
+        body {
+            background-image: url('static/index.jpg'); /* Add your background image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* White background with slight transparency */
+            color: #000; /* Default text color */
+            font-family: 'Arial', sans-serif; /* Updated font family */
+        }
+        h1 {
+            color :rgb(0, 0, 0);
+            margin-bottom: 30px;
+            font-size: 2.5em; /* Larger font size */
+            font-weight: bold; /* Bold font weight */
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 1.2em; /* Larger font size */
+        }
+        .login-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-buttons button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em; /* Larger font size */
+            margin: 0 10px; /* Add margin between buttons */
+        }
+        .login-buttons button:hover {
+            background-color: #0056b3;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to our Project Management System</h1>
+        <p>Please select your login option</p>
+        <div class="login-buttons">
+            <button onclick="window.location.href='/admin_login'">Admin Login</button>
+            <button onclick="window.location.href='/faculty_login'">Faculty Login</button>
+        </div>
+    
+    </div>
+</body>
+</html>
